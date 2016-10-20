@@ -1,6 +1,6 @@
 #+TITLE: Lilydex's Home
 #+AUTHOR: Lilydex
-#+DATE: today
+#+DATE: <2016-10-20 四>
 #+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
 #+OPTIONS: html-preamble:t html-scripts:t html-style:t
 #+OPTIONS: html5-fancy:nil tex:t
@@ -20,4 +20,3 @@
 #+END_HTML
 
 * 文章
-[[file:./post/test.html][测试我的博客]]
