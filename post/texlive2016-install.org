@@ -1,0 +1,19 @@
+#+TITLE: TeXLive2016安装
+#+OPTIONS: tex:dvipng
+#+INCLUDE: "../section/header.org"
+* texlive
+
+  TeXLive 是由国际 TeX 用户组织 TUG 开发的 TeX 系统，支持不同的操作系统平台，可以用它来编译LaTeX文档。  \\
+  一些主流的linux发行版提供了TeXLive软件包，可以直接用包管理器安装。  \\
+  但是它们可能不够完全，在使用时会缺少模板。  \\
+  所以我选择从 [[http://tug.org/texlive/][官网]] 下载安装。
+  
+* 安装
+
+  TeXLive2016的完整安装包大概有3.1G，虽然官网也提供网络安装程序，为了保险起见和速度，还是下载完整的ISO文件。  \\
+  下载好后挂载ISO。
+#+BEGIN_SRC shell
+# mount -t iso9660 texlive2016.iso /mnt
+#+END_SRC
+  运行install-tl即可，会有选项让你选择，默认安装到/usr/local/texlive/2016。  \\
+  最后手动设置一下环境变量。

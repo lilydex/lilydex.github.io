@@ -20,4 +20,6 @@
 #+END_HTML
 
 * 文章
-[[file:./post/test.html][测试我的博客]]
+  [[file:./post/test.html][测试我的博客]]
+** LaTeX
+  [[file:post/texlive2016-install.html][TeXLive2016的安装]]
