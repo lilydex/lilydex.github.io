@@ -3,8 +3,8 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Lilydex's Home</title>
-<!-- 2016-11-02 三 21:23 -->
+<title>Org Mode文档导出到Html</title>
+<!-- 2016-11-02 三 21:22 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Lilydex" />
@@ -88,7 +88,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" href="./css/org-manual.css" type="text/css">
+<link rel="stylesheet" href="../css/org-manual.css" type="text/css">
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -135,54 +135,214 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
 </head>
 <body>
 <div id="content">
-<h1 class="title">Lilydex's Home</h1>
+<h1 class="title">Org Mode文档导出到Html</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 文章</a>
+<li><a href="#sec-1">1. 命令</a></li>
+<li><a href="#sec-2">2. Latex处理</a>
 <ul>
-<li><a href="#sec-1-1">1.1. LaTeX</a></li>
-<li><a href="#sec-1-2">1.2. Org Mode</a></li>
+<li><a href="#sec-2-1">2.1. 特殊字符和上标、下标</a></li>
+<li><a href="#sec-2-2">2.2. LaTeX{} fragments</a></li>
+<li><a href="#sec-2-3">2.3. LaTeX{} blocks</a></li>
 </ul>
 </li>
+<li><a href="#sec-3">3. 嵌入图片</a></li>
+<li><a href="#sec-4">4. 中文段落缩进问题</a></li>
 </ul>
 </div>
 </div>
 <div style="text-align:right">~keep silence~</div>
+<a href="../index.html">&lt;HOME</a>
+
+<hr  />
 
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 文章</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> 命令</h2>
 <div class="outline-text-2" id="text-1">
+<pre class="example">
+C-c C-e h h     (org-html-export-to-html)
+</pre>
 <p>
-<a href="./post/test.html">测试我的博客</a>
+导出到html文件，file.org 会导出成 file.html 。
+</p>
+<pre class="example">
+C-c C-e h H     (org-html-export-as-html)
+</pre>
+<p>
+导出到临时缓冲区，不创建文件。
 </p>
 </div>
-<div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> LaTeX</h3>
-<div class="outline-text-3" id="text-1-1">
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Latex处理</h2>
+<div class="outline-text-2" id="text-2">
 <p>
-<a href="post/texlive2016-install.html">TeXLive2016的安装</a>
+如果org文件中有LaTeX代码的话，有三种情况 &rarr; 需要考虑：
+</p>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> 特殊字符和上标、下标</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+可以在html中展示，不用处理。
 </p>
 </div>
 </div>
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Org Mode</h3>
-<div class="outline-text-3" id="text-1-2">
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> LaTeX{} fragments</h3>
+<div class="outline-text-3" id="text-2-2">
 <p>
-<a href="./post/org-mode-export2html.html">Org Mode文档导出到Html</a>
+由 $$ 、 \(\) 或 \[\] 包含的代码，需要让org mode自动将它们转为相应的图片并在html中引用。 <br  />
+</p>
+<pre class="example">
+#+OPTIONS: tex:imagemagick
+</pre>
+<p>
+设置转换的工具，可以用 dvipng 或 imagemagick ，会在当前目录建立一个专门放置生成图片的文件夹。
+</p>
+
+
+<p>
+预览生成的图像：
+</p>
+<pre class="example">
+C-c C-x C-l  开启预览
+
+C-c C-c      退出预览
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> LaTeX{} blocks</h3>
+<div class="outline-text-3" id="text-2-3">
+<pre class="example">
+#+BEGIN_src latex
+LaTeX{}
+#+END_src
+</pre>
+<p>
+用上面的方式嵌入的代码，可以在代码块中指定输出图片路径。
+</p>
+<pre class="example">
+#+BEGIN_SRC latex :file ./output.png
+\LaTeX{}
+#+END_SRC
+</pre>
+<p>
+当光标在代码块时，按 C-c C-c 执行代码，会自动生成图片，并在下面给出结果。
+</p>
+<pre class="example">
+#+RESULTS:
+#+BEGIN_LaTeX
+[[file:./output.png]]
+#+END_LaTeX
+</pre>
+<p>
+记得把路径之外的部分去掉。
 </p>
 </div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> 嵌入图片</h2>
+<div class="outline-text-2" id="text-3">
+<pre class="example">
+#+CAPTION: A black cat stalking a spider
+#+ATTR_HTML: :alt cat/spider image :title Action! :align right
+[[./img/a.jpg]]
+</pre>
+<p>
+用 <b>#+ATTR_HTML</b> 来为图片添加属性，可以更改高度，宽度，对齐方式等等。
+</p>
+
+<p>
+用 <b>#+CAPTION</b> 加上标题。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> 中文段落缩进问题</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+导出的中文段落默认是无缩进的。 
+</p>
+
+<p>
+要实现缩进的话，可以修改 CSS 文件。 
+</p>
+
+<p>
+在使用的 css 文件添加 text-indent 属性，设置为 2em。
+</p>
+
+<pre class="example">
+p { 
+    margin-top: 0; 
+    text-align: justify;
+    text-indent: 2em;
+    width: 1240px;
+}
+</pre>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: today</p>
 <p class="author">Author: Lilydex</p>
-<p class="date">Created: 2016-11-02 三 21:23</p>
+<p class="date">Created: 2016-11-02 三 21:22</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

@@ -1,6 +1,7 @@
 #+TITLE: Lilydex's Home
 #+AUTHOR: Lilydex
 #+DATE: today
+#+OPTIONS: ^:{}
 #+OPTIONS: html-link-use-abs-url:nil html-postamble:auto
 #+OPTIONS: html-preamble:t html-scripts:t html-style:t
 #+OPTIONS: html5-fancy:nil tex:t
@@ -22,4 +23,6 @@
 * 文章
   [[file:./post/test.html][测试我的博客]]
 ** LaTeX
-  [[file:post/texlive2016-install.html][TeXLive2016的安装]]
+   [[file:post/texlive2016-install.html][TeXLive2016的安装]]
+** Org Mode
+   [[./post/org-mode-export2html.html][Org Mode文档导出到Html]]

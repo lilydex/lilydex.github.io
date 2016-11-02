@@ -1,0 +1,84 @@
+#+TITLE: Org Mode文档导出到Html
+#+INCLUDE: "../section/header.org"
+
+* 命令
+#+BEGIN_EXAMPLE
+C-c C-e h h     (org-html-export-to-html) 
+#+END_EXAMPLE
+  导出到html文件，file.org 会导出成 file.html 。
+#+BEGIN_EXAMPLE
+C-c C-e h H     (org-html-export-as-html)
+#+END_EXAMPLE
+  导出到临时缓冲区，不创建文件。
+
+* Latex处理
+  如果org文件中有LaTeX代码的话，有三种情况 \rarr 需要考虑：
+
+** 特殊字符和上标、下标
+   可以在html中展示，不用处理。
+
+** LaTeX{} fragments
+   由 $$ 、 \(\) 或 \[\] 包含的代码，需要让org mode自动将它们转为相应的图片并在html中引用。 \\
+   #+BEGIN_EXAMPLE
+   #+OPTIONS: tex:imagemagick
+   #+END_EXAMPLE
+   设置转换的工具，可以用 dvipng 或 imagemagick ，会在当前目录建立一个专门放置生成图片的文件夹。
+
+   
+   预览生成的图像：
+#+BEGIN_EXAMPLE
+C-c C-x C-l  开启预览
+
+C-c C-c      退出预览
+
+#+END_EXAMPLE
+   
+** LaTeX{} blocks
+#+BEGIN_EXAMPLE
+#+BEGIN_src latex
+LaTeX{}
+#+END_src
+#+END_EXAMPLE
+   用上面的方式嵌入的代码，可以在代码块中指定输出图片路径。
+#+BEGIN_EXAMPLE
+#+BEGIN_SRC latex :file ./output.png
+\LaTeX{}
+#+END_SRC
+
+#+END_EXAMPLE
+   当光标在代码块时，按 C-c C-c 执行代码，会自动生成图片，并在下面给出结果。
+#+BEGIN_EXAMPLE
+#+RESULTS:
+#+BEGIN_LaTeX
+[[file:./output.png]]
+#+END_LaTeX
+#+END_EXAMPLE
+   记得把路径之外的部分去掉。
+
+* 嵌入图片
+  
+#+BEGIN_EXAMPLE
+#+CAPTION: A black cat stalking a spider
+#+ATTR_HTML: :alt cat/spider image :title Action! :align right
+[[./img/a.jpg]]
+#+END_EXAMPLE
+  用 *#+ATTR_HTML* 来为图片添加属性，可以更改高度，宽度，对齐方式等等。
+
+  用 *#+CAPTION* 加上标题。
+  
+* 中文段落缩进问题
+
+  导出的中文段落默认是无缩进的。 
+
+  要实现缩进的话，可以修改 CSS 文件。 
+
+  在使用的 css 文件添加 text-indent 属性，设置为 2em。
+
+#+BEGIN_EXAMPLE
+p { 
+    margin-top: 0; 
+    text-align: justify;
+    text-indent: 2em;
+    width: 1240px;
+}
+#+END_EXAMPLE
